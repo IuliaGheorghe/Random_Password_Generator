@@ -12,37 +12,134 @@
 </head>
 <body>
 
-    <h1 class="blue">Random Password Generator</h1>
-    <p>Choose Password Components</p>
-    <hr>
+    <!-- Choose Password Components -->
+    <div id="components">
 
-    <div id="options-container">
-        <div class="option selected">
-            <i class="fas fa-check-circle"></i>
-            <h5>Lower Letters [a-z]</h5>
+        <h1 class="blue">Random Password Generator</h1>
+        <p>Choose Password Components</p>
+        <hr>
+
+        <div id="options-container">
+            <div class="option selected" onclick="SetCharsOption(0)">
+                <i class="fas fa-check-circle"></i>
+                <h5>Lower Letters [a-z]</h5>
+            </div>
+
+            <div class="option disabled" onclick="SetCharsOption(1)">
+                <i class="fas fa-check-circle"></i>
+                <h5>Upper Letters [A-Z]</h5>
+            </div>
+
+            <div class="option disabled" onclick="SetCharsOption(2)">
+                <i class="fas fa-check-circle"></i>
+                <h5>Digits [0-9]</h5>
+            </div>
+
+            <div class="option disabled" onclick="SetCharsOption(3)">
+                <i class="fas fa-check-circle"></i>
+                <h5>Special Characters {.,-_/&%#()}</h5>
+            </div>
         </div>
 
-        <div class="option disabled">
-            <i class="fas fa-check-circle"></i>
-            <h5>Upper Letters [A-Z]</h5>
+
+        <div class="bttn-container">
+            <i class="fas fa-chevron-right" onclick="SetChars()"></i>
         </div>
 
-        <div class="option selected">
-            <i class="fas fa-check-circle"></i>
-            <h5>Digits [0-9]</h5>
-        </div>
-
-        <div class="option selected">
-            <i class="fas fa-check-circle"></i>
-            <h5>Special Characters {.,-_/&%#()}</h5>
-        </div>
     </div>
 
+    <!-- Choose Password Length -->
+    <div id="size">
 
-    <div class="bttn-container">
-        <i class="fas fa-chevron-right"></i>
+        <h1 class="blue">Random Password Generator</h1>
+        <p>Choose Your Password Size</p>
+        <hr>
+
+        <div id="size-container">
+
+            <div id="size-picker">
+                <div class="slidecontainer">
+                    <input type="range" min="5" max="20" value="8" class="slider" id="myRange" onchange="rangeChanged()">
+                </div>
+
+                <input type="number" name="size-value" id="size-value" value="8" min="5" max="20" onchange="sizeChanged()">
+            </div>
+
+            <h3 id="size-fun-text-generator">Can't wait to break it!</h3>
+        </div>
+
+        <div class="bttn-container">
+            <i class="fas fa-chevron-right" onclick="SetSize()"></i>
+        </div>
+
+    </div>
+
+    <!-- Choose Password Sequence -->
+    <div id="sequence">
+
+        <h1 class="blue">Random Password Generator</h1>
+        <p>Do You Want A Special Sequence Of Characters To Be Included?</p>
+        <hr>
+
+        <div id="sequence-options-container">
+
+            <div class="option disabled" style="margin-bottom: 10px;" onclick="WantsSequence(true)">
+                <i class="fas fa-check-circle"></i>
+                <h5>Yes</h5>
+            </div>
+
+            <div id="yes-sequence">
+                <input type="text" placeholder="Add Your Sequence Here">
+                <p style="padding-left: 50px;">Choose Sequence Position</p>
+
+                <div id="sequence-positions-container">
+                    <div class="option disabled sq-op" onclick="SetSequencePos(0)" id="beg">
+                        <i class="fas fa-check-circle"></i>
+                        <h5>Start</h5>
+                    </div>
+
+                    <div class="option selected sq-op" onclick="SetSequencePos(1)" id="mid">
+                        <i class="fas fa-check-circle"></i>
+                        <h5>Middle</h5>
+                    </div>
+
+                    <div class="option disabled sq-op" onclick="SetSequencePos(2)" id="end">
+                        <i class="fas fa-check-circle"></i>
+                        <h5>End</h5>
+                    </div>
+
+                    <div class="option disabled sq-op" onclick="SetSequencePos(3)" id="idm">
+                        <i class="fas fa-check-circle"></i>
+                        <h5>It Doesn't Matter</h5>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="option selected" onclick="WantsSequence(false)">
+                <i class="fas fa-check-circle"></i>
+                <h5>No</h5>
+            </div>
+            
+        </div>
+
+        <div class="bttn-container bttn-container-sequence">
+            <button type="button" onclick="GeneratePassword()">Generate Password</button>
+        </div>
+    
+    </div>
+
+    <div id="result">
+        <h1 class="blue">Random Password Generator</h1>
+        <p>Your Password Is:</p>
+        <hr>
+
+        <div id="password-container">
+            <h2 class="blue" id="pasw">Password123.</h2>
+        </div>
     </div>
     
+
+    <script src="slide.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

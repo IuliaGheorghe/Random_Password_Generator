@@ -8,6 +8,25 @@ body{
     margin: 0;
 }
 
+#components{
+    display: block;
+}
+
+#size{
+    display: none;
+}
+
+#sequence{
+    display: none;
+}
+
+
+#result{
+    display: none;
+}
+
+
+
 .blue{
     /*color: rgb(0, 116, 151);*/
     color: #0F52BA    ;
@@ -125,10 +144,10 @@ input[placeholder="Add Your Sequence Here"]::placeholder {
     margin: 50px 0;
 }
 
-/*#yes-sequence{
+#yes-sequence{
     display: none;
 }
-*/
+
 
 #sequence-positions-container{
     display: flex;
@@ -191,6 +210,16 @@ input[placeholder="Add Your Sequence Here"]::placeholder {
 }
 
 
+#password-container{
+    height: calc(55vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#password-container h2{
+    font-weight: bold;
+}
 
 
 
