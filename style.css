@@ -221,6 +221,10 @@ input[placeholder="Add Your Sequence Here"]::placeholder {
     font-weight: bold;
 }
 
+#copied-pasw{
+    text-align: center;
+    display: none;
+}
 
 
 /*RWD*/

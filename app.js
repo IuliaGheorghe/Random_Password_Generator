@@ -47,8 +47,6 @@ function SetCharsOption(x){
         requested[x] = 0;
     }
 
-    console.log(requested);
-
 }
 
 
@@ -61,7 +59,6 @@ function SetSize(){
     document.getElementById('result').style.display = 'none';
 
     passwordSize = document.getElementById('myRange').value;
-    console.log(passwordSize);
     
 }
 
@@ -90,6 +87,8 @@ function WantsSequence(op){
         document.getElementById('sequence-options-container').querySelectorAll('.option:not(.sq-op)')[1].classList.remove("selected");
         document.getElementById('sequence-options-container').querySelectorAll('.option:not(.sq-op)')[1].classList.add("disabled");
         document.getElementById('yes-sequence').style.display="block";
+        
+
 
     }
     else{
@@ -105,9 +104,10 @@ function WantsSequence(op){
 
 
 function GeneratePassword(){
-    sequence = document.querySelector('[placeholder="Add Your Sequence Here"]').value;
-    console.log(sequence);
 
+    if(document.getElementById('yes-sequence').style.display==='block') 
+        sequence = document.querySelector('[placeholder="Add Your Sequence Here"]').value;
+    else sequence = '';
 
 
     // check what characters should be used and places their sets in reqType array
@@ -126,7 +126,6 @@ function GeneratePassword(){
     let password = '';
 
     let sequencePosition = document.getElementById('sequence-positions-container').querySelector('[class*="selected"]').id;
-    console.log(sequencePosition);
     let seqPosOptions = ['beg', 'mid', 'end'];
 
     /*
@@ -191,4 +190,22 @@ function GeneratePassword(){
     document.getElementById('result').style.display = 'block';
 
     document.getElementById('pasw').innerText = password;
+}
+
+function Restart(){
+    window.location.href = "index.html";
+}
+
+function clip(x){
+    alert("Copied the text: " + x.innerText);
+}
+
+function CopyToClipboard(){
+    let copyText = document.getElementById("pasw");
+
+    navigator.clipboard.writeText(copyText.innerText);
+
+    document.getElementById('copy-clip').style.backgroundColor = '#10ac84';
+    document.getElementById('copied-pasw').style.display = 'block';
+      
 }
